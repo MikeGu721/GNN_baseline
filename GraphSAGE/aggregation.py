@@ -25,6 +25,11 @@ class NeighborAggregator(nn.Module):
             init.zeros_(self.bias)
 
     def forward(self, neighbor_feature):
+        '''
+        邻居的聚合操作
+        :param neighbor_feature: 需要聚合的邻居特征
+        :return:
+        '''
         assert neighbor_feature in ['mean', 'sum', 'max']
         if self.aggr_method == 'mean':
             aggr_neighbor = neighbor_feature.mean(dim=1)

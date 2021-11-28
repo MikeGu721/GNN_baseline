@@ -4,9 +4,9 @@ import torch
 import torch.nn.functional as F
 
 
-class GAT(nn.Module):
+class GraphAttentionNetwork(nn.Module):
     def __init__(self, nfeat, nhid, nclass, dropout, alpha, nheads):
-        super(GAT, self).__init__()
+        super(GraphAttentionNetwork, self).__init__()
         self.dropout = dropout
         self.attentions = [GraphAttentionLayer(nfeat, nhid, alpha, dropout, concat=False) for _ in range(nheads)]
         for i, attention in enumerate(self.attentions):

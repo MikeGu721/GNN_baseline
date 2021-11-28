@@ -2,10 +2,16 @@ import torch.nn as nn
 from layer import SageGCN
 
 
-class GraphSAGE(nn.Module):
+class GraphSage(nn.Module):
     def __init__(self, input_dim, hidden_dim=None,
                  num_neighbors_list=None):
-        super(GraphSAGE, self).__init__()
+        '''
+        初始化GraphSAGE模型
+        :param input_dim: 输入特征维度
+        :param hidden_dim: 隐藏层维度
+        :param num_neighbors_list: 聚合节点数
+        '''
+        super(GraphSage, self).__init__()
         if num_neighbors_list is None:
             num_neighbors_list = [10, 10]
         if hidden_dim is None:
